@@ -1,6 +1,6 @@
 import React,{Component} from "react"
 import ReactDOM from "react-dom"
-import { setInterval } from "timers";
+// import { setInterval } from "timers";
 
 // 无状态组件
 // function render(){
@@ -38,15 +38,25 @@ import { setInterval } from "timers";
 // );
 
 
-class App extends Component{
-    constructor(props){
-        super(props)
-    }
+// class App extends Component{
+//     constructor(props){
+//         super(props)
+//         this.state={
+//             name:props.name||'zhagnsan'
+//         }
+//     }
+    
 
-    render(){
-        return <h2>哈哈</h2>
-    }
-}
+// }
+
+
+
+
+
+
+
+
+import App from "./components/app"
 
 ReactDOM.render(
     <App />,
