@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 
 
 import LifeRound from "./lifeRound/parent"
+import Message from "./message/parent"
+import Render from "./render"
+import Style from "./style"
+import Style2 from "./style2"
+
 class App extends Component{
     constructor(props){
         super(props)
@@ -16,9 +21,16 @@ class App extends Component{
         },1000)
     }
     render(){
+
+
         return <ul>
             <li>
-                <LifeRound age={this.state.age}/>
+                {/* <LifeRound age={this.state.age}/> */}
+                {/* <Message /> */}
+                {/* <Render />   */}
+
+                <Style />
+                <Style2 />
             </li>
         </ul>
     }

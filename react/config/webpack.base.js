@@ -21,23 +21,23 @@ module.exports = {
           options: config.babel
         }]
       },
-       // 使用css的module方式进行css的局部作用域划分
-    //    {
-    //     test: /\.css$/,
-    //     use: ExtractTextPlugin.extract({
-    //       fallback: "style-loader",
-    //       use: "css-loader?module"
-    //     }),
-    //     exclude: /node_modules/
-    //   },
+      //  使用css的module方式进行css的局部作用域划分
+       {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader?module"
+        }),
+        exclude: /node_modules/
+      },
       // 对于antd的modules中的css不可以使用css的module方式加载
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
           use: "css-loader"
-        })
-        // include: /node_modules/
+        }),
+        include: /node_modules/
       },
       // 为antd单独添加less加载器
       {
