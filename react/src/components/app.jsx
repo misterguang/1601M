@@ -6,6 +6,7 @@ import Message from "./message/parent"
 import Render from "./render"
 import Style from "./style"
 import Style2 from "./style2"
+import Form from "./form"
 
 class App extends Component{
     constructor(props){
@@ -29,8 +30,9 @@ class App extends Component{
                 {/* <Message /> */}
                 {/* <Render />   */}
 
-                <Style />
-                <Style2 />
+                {/* <Style />
+                <Style2 /> */}
+                <Form />
             </li>
         </ul>
     }
