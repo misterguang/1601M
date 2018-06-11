@@ -7,6 +7,7 @@ import Render from "./render"
 import Style from "./style"
 import Style2 from "./style2"
 import Form from "./form"
+import Popuproot from "./popupRoot/popupRoot"
 
 class App extends Component{
     constructor(props){
@@ -15,11 +16,11 @@ class App extends Component{
             age:20
         }
 
-        setInterval(()=>{
-            this.setState({
-                age:this.state.age+1
-            })
-        },1000)
+        // setInterval(()=>{
+        //     this.setState({
+        //         age:this.state.age+1
+        //     })
+        // },1000)
     }
     render(){
 
@@ -32,7 +33,9 @@ class App extends Component{
 
                 {/* <Style />
                 <Style2 /> */}
-                <Form />
+                {/* <Form /> */}
+
+                <Popuproot />
             </li>
         </ul>
     }

@@ -1,0 +1,23 @@
+.alert{
+    width: 500px;
+    height: 300px;
+    padding:30px;
+    position: fixed;
+    left: 50%;
+    top:50%;
+    margin-left: -250px;
+    margin-top:-150px;
+    background: lightblue;
+    border: 1px solid black
+}
+
+.alert section{
+    display: flex;
+    justify-content:center
+}
+
+.alert button{
+  width: 100px;
+  height: 40px;
+  margin:20px 40px;
+}
