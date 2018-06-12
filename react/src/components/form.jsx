@@ -7,38 +7,43 @@ export default class Form extends Component {
         super(props)
         this.state={
             formData:{
-                name:"zhangsan",
+                name:"",
                 password:"",
                 sex:"",
-                love:["足球"],
-                addr:"南京",
-                description:"天气真好"
+                love:[],
+                addr:"请选择",
+                description:""
             },
             regData:{
                 name:{
                     reg:/^[a-zA-Z]{6,12}$/,
                     msg:"请输入正确的用户名",
-                    required:true
+                    required:true,
+                    state:false
                 },
                 password:{
                     reg:/^[a-zA-Z0-9]{6,16}$/,
                     msg:"请输入正确的密码",
-                    required:true
+                    required:true,
+                    state:false
                 },
                 sex:{
                     reg:/\S/,
                     msg:"请选择性别",
-                    required:true
+                    required:true,
+                    state:false
                 },
                 addr:{
                     reg:/\S/,
                     msg:"请选择城市",
-                    required:true
+                    required:true,
+                    state:false
                 },
                 description:{
-                    reg:/^[\u4e00-\u9fa5]$/,
+                    reg:/[\u4e00-\u9fa5]/,
                     msg:"请输入中文",
-                    required:false
+                    required:false,
+                    state:true
                 }
             }
         }
@@ -53,11 +58,13 @@ export default class Form extends Component {
             // console.log(e.target.parentNode)
             if(!state){
                 clearnTip()
+                this.state.regData[e.target.name].state=false
                 let el=document.createElement("p")
                 el.setAttribute("class",style.show)
                 el.innerHTML=this.state.regData[e.target.name].msg
                 e.target.parentNode.appendChild(el)
             }else{
+                this.state.regData[e.target.name].state=true
                 clearnTip()
             }
            
@@ -65,6 +72,7 @@ export default class Form extends Component {
     //    清空提示信息
         let clearnTip=()=>{
             let $p=e.target.parentNode.getElementsByTagName("p")[0]
+            console.log($p)
             if($p){
                 e.target.parentNode.removeChild($p)
             }
@@ -72,22 +80,31 @@ export default class Form extends Component {
         // 判断是否为必填
         let testRequired=()=>{
             if(this.state.regData[e.target.name].required){
-                regTestFn()
+                this.state.regData[e.target.name].state=false
+                let el=document.createElement("p")
+                el.setAttribute("class",style.show)
+                el.innerHTML="不能为空"
+                e.target.parentNode.appendChild(el)
             }else{
-                testNull()
+                this.state.regData[e.target.name].state=true
             }
         }
         // 检测为不为空
         let testNull=()=>{
+            clearnTip()
+            
             if(this.state.formData[e.target.name]){
                 regTestFn()
+            }else{
+                testRequired()
+                
             }
         }
-        testRequired()
-        
-       
+        testNull()
     }
 
+    // 必填：校验
+    // 是否为空：
     changeHandle(e){
         let obj=null
         switch(e.target.type){
@@ -95,7 +112,7 @@ export default class Form extends Component {
                 let love=[...this.state.formData.love]
                 if(love.includes(e.target.value)){
                     love.splice(love.indexOf(e.target.value),1)
-                    console.log(love)
+                    // console.log(love)
                 }else{
                     love.push(e.target.value)
                 }
@@ -112,9 +129,16 @@ export default class Form extends Component {
         this.setState({
             formData:Object.assign(this.state.formData,obj)
         })
-        console.log(this.state.formData)
+        // console.log(this.state.formData)
     }
     submit(){
+        let {name,password,sex,addr,description}=this.state.regData
+        if(name.state&&password.state&&sex.state&&addr.state&&description.state){
+            alert("提交")
+        }else{
+            alert("请填写完整")
+        }
+
         console.log(this.state.formData)
     }
     componentDidMount(){
@@ -124,17 +148,17 @@ export default class Form extends Component {
         // $input.onchange=this.changeHandle
         let arrinput=[...$input]
         arrinput.forEach(i => {
-            console.log(i)
+            // console.log(i)
             i.onblur=this.testReg.bind(this)
         });
         let arrtextarea=[...$textarea]
         arrtextarea.forEach(i => {
-            console.log(i)
+            // console.log(i)
             i.onblur=this.testReg.bind(this)
         });
         let arrselect=[...$select]
         arrselect.forEach(i => {
-            console.log(i)
+            // console.log(i)
             i.onblur=this.testReg.bind(this)
         });
 
@@ -171,6 +195,7 @@ export default class Form extends Component {
                     <li>
                         <label htmlFor="">城市选择：</label>
                         <select id="" name="addr" defaultValue={this.state.formData.addr} onChange={this.changeHandle.bind(this)}>
+                            <option value="请选择">请选择</option>
                             <option value="北京">北京</option>
                             <option value="南京">南京</option>
                             <option value="上海">上海</option>

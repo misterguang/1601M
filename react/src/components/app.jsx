@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 
 import LifeRound from "./lifeRound/parent"
 import Message from "./message/parent"
+import Message1 from "./message1/parent"
+import Messageevent from "./messageEvent/parent"
 import Render from "./render"
 import Style from "./style"
 import Style2 from "./style2"
@@ -29,13 +31,15 @@ class App extends Component{
             <li>
                 {/* <LifeRound age={this.state.age}/> */}
                 {/* <Message /> */}
+                {/* <Message1 /> */}
+                <Messageevent />
                 {/* <Render />   */}
 
                 {/* <Style />
                 <Style2 /> */}
                 {/* <Form /> */}
 
-                <Popuproot />
+                {/* <Popuproot /> */}
             </li>
         </ul>
     }

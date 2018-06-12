@@ -21,7 +21,7 @@ module.exports = {
         host: "localhost",
         port: 8099,
         browserOpen: true,
-        // devtool: "cheap-module-eval-source-map",
+        devtool: "cheap-module-eval-source-map",
         // devtool:false,
         proxy: {
             "/apis": {

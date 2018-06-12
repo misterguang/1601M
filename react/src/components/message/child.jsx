@@ -41,11 +41,11 @@ class Child extends Component {
 }
 
 
-console.log(1)
-setTimeout(()=>{
-    console.log(2)
-})
-console.log(3)
+// console.log(1)
+// setTimeout(()=>{
+//     console.log(2)
+// })
+// console.log(3)
 
 // Child.propTypes={     //组件全局进行配置
 // 	name:PropTypes.string.isRequired

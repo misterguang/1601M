@@ -50,8 +50,6 @@ export default class Popuproot extends Component {
             }
         }
     }
-   
-
     render() {
         return (
             <div>
