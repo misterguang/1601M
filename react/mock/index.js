@@ -1,6 +1,9 @@
 module.exports=function(app){
-    app.get("/api",function(req,res,next){
-        res.send("12345")
+    app.get("/api/hocGetData",function(req,res,next){
+        res.send({
+            obj:{
+                name:"zhangsan"
+            }
+        })
     })
-    
 }
