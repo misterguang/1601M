@@ -42,20 +42,21 @@ module.exports = {
             ["env", { modules: false }],
             "stage-0",
             "react"
+        ],
+        plugins: [
+            ["transform-runtime",
+                {
+                    "helpers": false,
+                    "polyfill": false,
+                    "regenerator": true,
+                    "moduleName": "babel-runtime"
+                }
+            ]
+            // "syntax-dynamic-import", "transform-object-rest-spread", "transform-react-jsx",["import", {
+            //     libraryName: "antd-mobile",
+            //     style: true,
+            //   }]
         ]
-        // plugins: [
-        //     ["transform-runtime",
-        //         {
-        //             "helpers": false,
-        //             "polyfill": false,
-        //             "regenerator": true,
-        //             "moduleName": "babel-runtime"
-        //         }
-        //     ], "syntax-dynamic-import", "transform-object-rest-spread", "transform-react-jsx",["import", {
-        //         libraryName: "antd-mobile",
-        //         style: true,
-        //       }]
-        // ]
         
     }
 }

@@ -1,0 +1,23 @@
+.tab{
+    display: flex;
+    justify-content: center;
+    
+}
+.tab li{
+    font-size: 0.16rem;
+    width: 50%;
+    height: 0.5rem;
+    text-align: center;
+    line-height: 0.5rem;
+    border: 1px solid lightblue
+}
+
+.list{
+    font-size: 0.18rem;
+    padding:0.2rem 0.3rem
+}
+
+.list li{
+    display: flex;
+    justify-content: space-between;
+}

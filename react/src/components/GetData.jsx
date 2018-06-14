@@ -8,7 +8,7 @@ class Getdata extends Component {
         super(props)
         console.log(props.data)
         this.state={
-            data:props.data
+            data:props.data[0]
         }
         // axios.get("/api/hocGetData").then((data)=>{
         //     this.setState({
@@ -27,4 +27,4 @@ class Getdata extends Component {
 }
 
 
-export default Hocgetdata(Getdata,{type:"get",url:"/api/hocGetData"})
+export default Hocgetdata(Getdata,[{type:"get",url:"/api/hocGetData"},{type:"get",url:"/api/hocGetData1"}])

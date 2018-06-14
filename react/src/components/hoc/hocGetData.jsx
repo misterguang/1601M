@@ -10,15 +10,33 @@ export default function (Com,config) {
                 data:null
             }
         }
-        componentWillMount() {
-            // alert(22)
-            this.ajax(config).then((data)=>{
-                // console.log(data)
-                this.setState({
-                    Com:Com,
-                    data:JSON.parse(data)
-                })
+        // componentWillMount() {
+        //    var arr=config.map((i)=>{
+        //        return this.ajax(i)
+        //    })
+        //     Promise.all(arr).then((data)=>{
+        //         let resultArr=data.map((j)=>{
+        //             return JSON.parse(j)
+        //         })
+
+        //         this.setState({
+        //                         Com:Com,
+        //                         data:resultArr
+        //                     })
+        //     })
+
+        // }
+
+        async componentWillMount(){
+            let resultArr=[]
+            for(var i=0;i<config.length;i++){
+               resultArr.push(JSON.parse(await this.ajax(config[i]))) 
+            }
+            this.setState({
+                Com:Com,
+                data:resultArr
             })
+            
         }
 
         ajax({ type, url, data }) {
