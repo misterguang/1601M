@@ -6,28 +6,63 @@ import Style from "../../css/buyCar.css"
     constructor(props){
         super(props)
         console.log(props)
-
+        function getQueryString(str,name) {  
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");  
+            var r = str.substr(1).match(reg);  
+            if (r != null) return unescape(decodeURI(r[2])); return null;  
+        }  
+       
+        this.state={
+            data:this.dataHandle(props.initState.carClass[0],getQueryString(props.location.search,"type"))
+        }
+        
     }
-    componentWillReceiveProps(props){
-        console.log(props)
+    
+    dataHandle(data,type){
+        console.log(type)
+        var allCar=[]
+       
+         data.forEach((arr)=>{
+            arr.forEach((carClass)=>{
+                allCar.push(...carClass.carList) 
+            })
+        })
+        allCar=allCar.filter((i)=>{
+            return i.price!=""
+        })
+        console.log(allCar)
+
+        if(type=="+"){
+            allCar.sort((a,b)=>{
+               
+                return parseInt(b.price.slice(0,4))-parseInt(a.price.slice(0,4))
+            })
+        }else if(type=="-"){
+            allCar.sort((a,b)=>{
+                return parseInt(a.price.slice(0,4))-parseInt(b.price.slice(0,4))
+            })
+        }
+
+        return allCar
+        
     }
 
     render() {
         // console.log(this.props.data)
-        // let el=this.props.data.map((i,index)=>{
-        //     return  <li key={index}>
-        //                 <h4>{i.carName}</h4>
-        //                 <p>{i.price}</p>
-        //             </li>  
-        // })
+        let el=this.state.data.map((i,index)=>{
+            return  <li key={index}>
+                        <h4>{i.carName}</h4>
+                        <p>{i.price}</p>
+                    </li>  
+        })
 
         return (
             <ul className={Style.list}>
-               {/* {el}  */}
+               {el} 
             </ul>
         )
     }
 }
 
 
-export default Content
+export default hocBus(Content)

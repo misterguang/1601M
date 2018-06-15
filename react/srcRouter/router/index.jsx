@@ -14,12 +14,10 @@ import Buycar from "../components/buyCar/index"
 import Filter from "../components/buyCar/filter"
 import Content from "../components/buyCar/content"
 
-import hocBus from "../components/hoc/hocBus"
 
 
-var NewRouter=hocBus(Router)
 function RouterCom(){
-    return  <NewRouter>
+    return  <Router>
                 <App>
                     <Switch>
                         <Route exact path='/' component={Index}/>
@@ -27,7 +25,7 @@ function RouterCom(){
                         <Route path='/buyCar' render={BuycarRouter}/>
                     </Switch>
                 </App>
-             </NewRouter>
+             </Router>
 }
 // component可以渲染任何状态的组建
 // render只能渲染无状态组件

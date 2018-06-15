@@ -24,7 +24,7 @@ export default function (Com,config) {
         ajax({ type, url, data }) {
             return new Promise((resolve, reject) => {
                 var xhr = new XMLHttpRequest()
-                console.log(type,url)
+                // console.log(type,url)
                 if (type == "get") {
                     xhr.open(type,url)
                     xhr.send()
