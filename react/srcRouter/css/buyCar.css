@@ -1,0 +1,22 @@
+.BuyCarTab{
+    display: flex;
+    justify-content: space-between;
+}
+
+.BuyCarTab li{
+   width: 20%;
+   height: 0.5rem;
+   line-height: 0.5rem;
+   text-align: center;
+   background: lightblue;
+    border: 1px solid lightgray
+}
+.list{
+    font-size: 0.18rem;
+    padding:0.2rem 0.3rem
+}
+
+.list li{
+    display: flex;
+    justify-content: space-between;
+}
