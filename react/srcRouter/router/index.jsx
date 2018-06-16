@@ -13,11 +13,12 @@ import Collect from "../components/pc/collect"
 import Buycar from "../components/buyCar/index"
 import Filter from "../components/buyCar/filter"
 import Content from "../components/buyCar/content"
+import CarType from "../components/buyCar/carType"
 
 
 
 function RouterCom(){
-    return  <Router>
+    return  <Router >
                 <App>
                     <Switch>
                         <Route exact path='/' component={Index}/>
@@ -43,6 +44,7 @@ var BuycarRouter=()=>{
     return <Buycar>
                 <Route path='/buyCar/filter' component={Filter}/>
                 <Route path='/buyCar/content' component={Content}/>
+                <Route path='/buyCar/carType' component={CarType}/>
             </Buycar>
 }
 
