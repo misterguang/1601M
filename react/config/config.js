@@ -2,7 +2,8 @@ var path = require("path")
 var api = require("../mock/index")
 
 // var src="src"
-var src="srcRouter"
+// var src="srcRouter"
+var src="srcRedux"
 
 
 module.exports = {

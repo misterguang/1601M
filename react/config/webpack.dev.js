@@ -15,7 +15,13 @@ module.exports = merge(baseWebpack,{
       open:config.dev.browserOpen, 
       before:config.dev.before,
       proxy:config.dev.proxy,
-      // historyApiFallback:true
+      historyApiFallback:true
+      // historyApiFallback:{
+      //   rewrites: [
+      //     { from: /\//, to: '/' },
+        
+      //   ]
+      // }
   },
   devtool:config.dev.devtool,
   plugins:[

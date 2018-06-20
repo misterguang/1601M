@@ -8,6 +8,7 @@ const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 module.exports = {
   entry: config.base.entry,
   output:{
+    publicPath:"http://localhost:8099/",
     path:config.base.outputPath,
     filename:"js/"+config.base.outputFileName,
     chunkFilename:"[id]-[name]-[hash].js"  //组件懒加载时的文件名字，以及存储
@@ -66,7 +67,6 @@ module.exports = {
   },
   resolve:{
     extensions: [".js", ".jsx",".css"],
-    
   },
   plugins:[
     new htmlWebpackPlugin({

@@ -22,7 +22,7 @@ export default class Index extends Component {
                         
                     </li>
                     <li>
-                        <Link to="/buyCar/content">买车</Link>
+                        <Link to="/buyCar/content" >买车</Link>
                     </li>
                 </ul>
             </div>
