@@ -31,4 +31,37 @@ module.exports=function(app){
     app.get("/api/carClass",function(req,res,next){
         res.send(carClass)
     })
+    app.get("/api/shopClass",function(req,res,next){
+        let data=[
+            {
+                id:0,
+                price:"10.00",
+                num:1,
+                name:"iphone1",
+                state:true
+            },
+            {
+                id:1,
+                price:"50.00",
+                num:1,
+                name:"iphone2",
+                state:false
+            },
+            {
+                id:2,
+                price:"40.00",
+                num:1,
+                name:"iphone3",
+                state:true
+            },
+            {
+                id:3,
+                price:"30.00",
+                num:1,
+                name:"iphone4",
+                state:false
+            }
+        ]
+        res.send(data)
+    })
 }

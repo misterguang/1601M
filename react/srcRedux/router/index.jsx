@@ -10,13 +10,15 @@ import {
 import App from "../components/app"
 import  Index from "../components/index"
 import  Msg from "../components/msg"
+import  Shopping from "../components/shopping"
 export default function(){
     return <Router>
             <App>
                 <Index />
                 <Msg />
+                <Shopping />
                 <Route exact path='/' render={()=>{
-                    return <Redirect to="/index" />
+                    return <Redirect to="/shopping" />
                 }}/>
             </App>
     </Router>
