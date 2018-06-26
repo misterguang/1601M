@@ -1,0 +1,37 @@
+.allCount{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid lightseagreen
+}
+.item{
+    display: flex;
+    padding:0.5rem;
+    justify-content: space-between;
+
+}
+
+.item section{
+    display: flex;
+    
+    justify-content: space-between;
+    
+}
+
+.item section button{
+    padding:0.5rem
+}
+
+.item section span{
+    padding:0.5rem
+}
+
+.allSelect{
+    padding:0.5rem 0.3rem;
+}

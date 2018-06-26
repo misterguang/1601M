@@ -1,0 +1,29 @@
+.pupop{
+    position:fixed;
+    width: 5rem;
+    height: 2rem;
+    top:50%;
+    left:50%;
+    margin-top:-1rem;
+    margin-left: -2.50rem;
+    border: 1px solid lightpink;
+    background:lightcyan
+}
+.pupop div{
+    display: flex;
+    padding:0.2rem;
+    justify-content: space-between;
+    align-items: center
+}
+
+.pupop footer{
+    display: flex;
+    padding:0.2rem;
+    justify-content: space-between;
+    align-items: center
+}
+.pupop footer button{
+ width: 1rem;
+ height: 0.5rem;
+}
+

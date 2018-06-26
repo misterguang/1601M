@@ -14,7 +14,75 @@ var list = Mock.mock({
     }]
 })
 
+let userList=[
+    {
+        username:"zhangsan",
+        password:"1q2w3e",
+        userId:1
+    }
+]
+let num=1
+var bodyParser = require('body-parser');
 module.exports=function(app){
+
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: false }));
+
+    app.post("/api/login",function(req,res,next){
+        let {username,password}=req.body
+        console.log(req.body)
+        let user
+        let state=userList.some((i)=>{
+            if(i.username==username&&i.password==password){
+                user=i
+                return true
+            }else{
+                return false
+            }
+        })
+        if(state){
+            res.send(JSON.stringify({
+                code:"1001",
+                msg:"用户登录成功",
+                data:user.userId
+            }))
+        }else{
+            res.send(JSON.stringify({
+                code:"1002",
+                msg:"用户登录失败"
+            }))
+        }
+       
+    })
+    app.post("/api/register",function(req,res,next){
+        let {
+            username,
+            password
+        }=req.body
+        console.log(username,password)
+        let state=userList.some((i)=>{
+            if(i.username==username){
+                return true
+            }else{
+                return false
+            }
+        })
+
+        if(!state){
+            num++
+            userList.push({username,password,userId:num})
+            console.log(userList)
+            res.send(JSON.stringify({
+                code:"1003",
+                msg:"用户创建成功"
+            }))
+        }else{
+            res.send(JSON.stringify({
+                code:"1004",
+                msg:"用户创建失败"
+            }))
+        }
+    })
     app.get("/api/hocGetData",function(req,res,next){
         res.send({
             obj:{

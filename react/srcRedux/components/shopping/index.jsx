@@ -10,6 +10,7 @@ class Shopping extends Component {
     render() {
         return (
             <div>
+                
                 <List />
                 <Allcount />
             </div>

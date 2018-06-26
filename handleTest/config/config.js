@@ -1,21 +1,12 @@
 var path = require("path")
 var api = require("../mock/index")
 
-// var src="src"
-// var src="srcRouter"
-// var src="srcRedux"
-// var src="srclogin"
-var src="srcAntd"
-
-
 module.exports = {
     base: {
-        entry:path.join(__dirname,`../${src}/main.jsx`),
-       
+        entry:path.join(__dirname,`../src/main.jsx`),
         outputPath: path.join(__dirname, "../dist"),
         outputFileName: "[id]-[name]-[hash].js",
-       
-        templatePath: `./${src}/index.html`,
+        templatePath: `./src/index.html`,
         htmlMinify: {
             removeComments: true, //去除注释
             collapseWhitespace: true, //去除空格
@@ -43,6 +34,10 @@ module.exports = {
         uglifyJsSourceMap: false,
         devtool: false
     },
+    device:{
+        type:"mobile",
+        width:750
+    },
     babel: {
         presets: [
             // "env",
@@ -58,7 +53,8 @@ module.exports = {
                     "regenerator": true,
                     "moduleName": "babel-runtime"
                 }
-            ],"syntax-dynamic-import", "transform-object-rest-spread", "transform-react-jsx",["import", {
+            ],
+            "syntax-dynamic-import", "transform-object-rest-spread", "transform-react-jsx",["import", {
                 libraryName: "antd-mobile",
                 style: true,
               }]
